@@ -1,15 +1,29 @@
+# O nome do seu workflow, que aparecerá na página do GitHub Actions.
 name: Olá mundo
 
+# O gatilho para o workflow. Neste caso, ele será executado
+# sempre que houver um 'push' para o repositório.
 on: [push]
 
+# A definição dos "jobs" (tarefas) que serão executadas.
+# A palavra-chave 'jobs' precisa ter dois pontos (:) no final.
 jobs:
-  dizer-ola
+  # O nome do seu job.
+  dizer-ola:
+    # A plataforma onde o job será executado.
+    # O 'runs-on' precisa estar dentro da indentação do job 'dizer-ola'.
     runs-on: ubuntu-latest
 
-
-  step: 
-  - name:Imprime uma mensagem no console
-    run: echo "Olá mundo! Esta é a minha primeira github action"
-    
-  - name: Imprime outra mensagem
-    run: echo "Até a próxima automação"
+    # Aqui você define os passos (steps) que o job vai seguir.
+    # A palavra-chave 'steps' também precisa de dois pontos (:).
+    # Ela também deve estar dentro da indentação do job.
+    steps:
+      # Cada passo da lista começa com um traço (-).
+      # O 'name' e o 'run' de cada passo são indentados
+      # em relação ao traço.
+      - name: Imprime uma mensagem no console
+        run: echo "Olá mundo! Esta é a minha primeira GitHub Action"
+      
+      # Este é o segundo passo.
+      - name: Imprime outra mensagem
+        run: echo "Até a próxima automação"
